@@ -1,0 +1,67 @@
+
+
+<div class="container">
+
+<div class="page-header">
+        <h3> Check out our projects ! </h3>
+
+    <form class="form-inline well well-sm clearfix">
+        <span class="glyphicon glyphicon-search"></span>
+        <input type="text" placeholder="Search..." class="form-control" ng-model="search"/>
+    </form>
+</div>
+
+
+    <div class="row">
+        <div class="col-sm-6" ng-repeat="project in list | filter : search">
+                <div class="well well-sm">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <img ng-src="{{project.img_url}}" class="img-rounded img-responsive"/>
+                        </div>
+                        <div class="col-sm-6">
+                            <h4> <strong> {{project.name}}</strong></h4>
+                            <p><strong> category : </strong> {{ project.category}}</p>
+                            <p><strong> Made by : </strong> {{ project.madeBy}}</p>
+
+
+                            <button class="btn btn-success"  data-toggle="modal" data-target="#project-info" ng-click="changeActiveProject(project)">learn more</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    <div class="modal" id="project-info">
+        <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                   <h2> {{ activeProject.name}}</h2>
+               </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <img ng-src="{{activeProject.img_url}}" class="img img-rounded img-responsive"/>
+                        </div>
+
+                    </div>
+                    <div class="row top-buffer" style="margin-top: 30px ;" >
+                        <div class="col-md-12">
+                            <h4><strong>Made by : </strong> {{ activeProject.madeBy}}</h4>
+                            <h4><strong>Category : </strong> {{ activeProject.category}}</h4>
+                            <h4><strong>Description : </strong> </h4>
+                             <h4> {{ activeProject.description}}</h4>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+
+
+
+</div>
